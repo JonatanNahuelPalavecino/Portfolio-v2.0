@@ -1,0 +1,38 @@
+{
+  "name": "portfolio-jonatan-palavecino",
+  "version": "1.0.0",
+  "description": "Portfolio de Jonatan Palavecino - Fullstack developer",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonatanNahuelPalavecino/Portfolio-v2.0.git"
+  },
+  "keywords": [
+    "portfolio",
+    "Jonatan",
+    "Palavecino",
+    "node",
+    "javascript",
+    "react",
+    "express",
+    "desarrollo",
+    "web"
+  ],
+  "author": "Jonatan Palavecino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonatanNahuelPalavecino/Portfolio-v2.0/issues"
+  },
+  "homepage": "https://github.com/JonatanNahuelPalavecino/Portfolio-v2.0#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "three": "^0.162.0"
+  }
+}
