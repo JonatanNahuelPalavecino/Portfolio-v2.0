@@ -133,7 +133,6 @@ export const handleScrollSphere = () => {
             z: newZ,
             ease: "power2.out"
         });
-        nav.classList.add("show");
     } else {
         gsap.to(renderingParent.position, {
             duration: 2, 
