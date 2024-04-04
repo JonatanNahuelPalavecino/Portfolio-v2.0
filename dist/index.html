@@ -10,7 +10,7 @@
 </head>
 <body>
     
-    <section id="sphere" class="fixed h-full w-full bg-slate-950 z-0">
+    <div id="sphere" class="fixed h-full w-full bg-slate-950 z-0">
 
         <div class="absolute left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,0,.24),rgba(255,255,255,0))]">
             
@@ -20,17 +20,17 @@
             
         </div>
 
-    </section>
+    </div>
 
     <header class=" absolute w-full [91px]">
         <div id="nav" class="relative w-full h-[91px] z-20 flex justify-center items-center">
             <img class="absolute top-0 left-0 invert w-[75px] h-[75px] my-2 mx-4" src="/logo-portafolio.00e799c3.png" alt="img-logo">
-            <nav class="shadow-box relative w-[75%] h-[50px] rounded-3xl flex justify-evenly items-center">
-                <a class="uppercase font-bold text-white" href="#">inicio</a>
-                <a class="uppercase font-bold text-white" href="#about-me">sobre mi</a>
-                <a class="uppercase font-bold text-white" href="">proyectos</a>
-                <a class="uppercase font-bold text-white" href="">contacto</a>
-                <a class="uppercase font-bold text-white" href="">descargar cv</a>
+            <nav class="nav-box w-[65%] rounded-3xl flex justify-evenly items-center">
+                <a class="uppercase px-4 py-3 my-1 transition-all rounded font-bold text-white active" data-scroll="home" href="#home">inicio</a>
+                <a class="uppercase px-4 py-3 my-1 transition-all rounded font-bold text-white" data-scroll="about-me" href="#about-me">sobre mi</a>
+                <a class="uppercase px-4 py-3 my-1 transition-all rounded font-bold text-white" data-scroll="projects" href="#projects">proyectos</a>
+                <a class="uppercase px-4 py-3 my-1 transition-all rounded font-bold text-white" data-scroll="contact" href="#contact">contacto</a>
+                <a class="uppercase px-4 py-3 my-1 transition-all rounded font-bold text-white" href="">descargar cv</a>
             </nav>
             <aside id="aside" class="aside flex items-center fixed top-5 right-3 w-[50px] h-[50px] rounded-3xl bg-white overflow-hidden">
 
@@ -41,11 +41,11 @@
                 </div>
 
                 <nav id="navAside" class="hidden flex flex-col justify-evenly items-center w-[100%] h-[200px]">
-                    <a class="uppercase font-bold text-white opacity-0 -translate-y-4" href="#">inicio</a>
-                    <a class="uppercase font-bold text-white opacity-0 -translate-y-4" href="#about-me">sobre mi</a>
-                    <a class="uppercase font-bold text-white opacity-0 -translate-y-4" href="">proyectos</a>
-                    <a class="uppercase font-bold text-white opacity-0 -translate-y-4" href="">contacto</a>
-                    <a class="uppercase font-bold text-white opacity-0 -translate-y-4" href="">descargar cv</a>
+                    <a class="uppercase px-4 py-3 my-1 transition-all rounded font-bold text-white opacity-0 -translate-y-4" data-scroll="home" href="#home">inicio</a>
+                    <a class="uppercase px-4 py-3 my-1 transition-all rounded font-bold text-white opacity-0 -translate-y-4" data-scroll="about-me" href="#about-me">sobre mi</a>
+                    <a class="uppercase px-4 py-3 my-1 transition-all rounded font-bold text-white opacity-0 -translate-y-4" data-scroll="projects" href="#projects">proyectos</a>
+                    <a class="uppercase px-4 py-3 my-1 transition-all rounded font-bold text-white opacity-0 -translate-y-4" data-scroll="contact" href="#contact">contacto</a>
+                    <a class="uppercase px-4 py-3 my-1 transition-all rounded font-bold text-white opacity-0 -translate-y-4" href="">descargar cv</a>
                 </nav>
 
             </aside>
@@ -53,13 +53,13 @@
     </header>
     
 
-    <section class="relative w-full h-screen z-10 flex flex-col justify-center items-center">
+    <section id="home" class="relative w-full h-screen z-10 flex flex-col justify-center items-center">
             
-        <div id="heroTitle1">
-            
+        <div id="hero-title">
+
         </div>
 
-        <div id="heroTitle2" class="my-4">
+        <div id="hero-subtitle" class="w-[550px] mt-4 mb-8">
             
         </div>
 
@@ -122,16 +122,16 @@
 
     </section>
 
-    <section class="relative w-full h-screen z-10 flex justify-evenly items-center">
+    <section id="projects" class="relative w-full h-screen z-10 flex justify-evenly items-center">
 
     </section>
 
-    <section class="relative w-full h-screen z-10 flex justify-evenly items-center">
+    <section id="contact" class="relative w-full h-screen z-10 flex justify-evenly items-center">
 
     </section>
 
-    <section class="relative w-full h-screen z-10 flex justify-evenly items-center">
+    <footer class="relative w-full h-screen z-10 flex justify-evenly items-center">
 
-    </section>
+    </footer>
 </body>
 </html>

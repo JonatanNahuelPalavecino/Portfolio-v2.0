@@ -1,19 +1,20 @@
-import { gsap } from 'gsap';
+import gsap from "gsap";
 
 class Presentacion {
-    constructor(titulo, elementoId, size) {
+    constructor(word, box, size) {
+        this.word = word;
         this.size = size
-        this.titulo = titulo; //GUARDO EL TITULO EN UNA VARIABLE
-        this.elemento = document.querySelector(`#${elementoId}`); //GUARDO EL ELEMENTO EN UNA VARIABLE
-        this.letras = this.titulo.split("").map((letra) => `<span class="uppercase font-bold text-white ${this.size}">${letra}</span>`).join(""); //GUARDO EL TITULO EN UNA VARIABLE, LUEGO SEPARO CADA LETRA Y LAS GUARDO EN UN ARRAY, ITERO ESE ARRAY CON EL MAP Y GUARDO CADA LETRA EN UNA ETIQUETA SPAN, QUE LUEGO LA JUNTO EN ESTA VARIBLE "LETRAS"
-        this.elemento.innerHTML = this.letras; //GUARDO EL RESULTADO DE "LETRAS" EN EL ELEMENTO PREVIAMENTE SELECCIONADO
-    }
+        this.box = box;
+        this.loopNum = 0;
+        this.txt = '';
+    }  
 
-    animar() {
+    fade() {
 
-        //LUEGO CON "THIS.ELEMENTO.ID" ACCEDO AL CONTENIDO DE CADA ELEMENTO Y CON TEMPLATE STRING, CONCATENANDO CADA SPAN, LO ANIMO
+        this.txt = this.word.split("").map(letra => `<span class="uppercase font-bold text-white ${this.size}">${letra}</span>`).join("");
+        this.box.innerHTML = this.txt
 
-        gsap.fromTo(`#${this.elemento.id} span`, 
+        gsap.fromTo(`#${this.box.id} span`, 
             { opacity: 0 }, 
             { 
                 opacity: 1, 
@@ -23,14 +24,36 @@ class Presentacion {
         );
     }
 
+    animar() {
+
+        const i = this.loopNum;
+        const fullTxt = this.word;
+
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        this.box.innerHTML = `<span class="text-white uppercase font-bold ${this.size}">${this.txt}<span class="cursorText">|</span></span>`;
+
+        const randomDelay = Math.random() * (150 - 50) + 50;
+        this.loopNum++;
+        const that = this;
+  
+        if (this.txt.length === fullTxt.length) {
+            return
+        } else {
+            setTimeout(() => {
+
+                that.animar();
+        
+            }, randomDelay);
+        }
+    }
+
 }
+const heroTitle = document.querySelector("#hero-title")
+const fraseUno = "Jonatan Palavecino"
+const fraseDos = "Desarrollador Full Stack";
+const heroSubTitle = document.querySelector("#hero-subtitle"); // ID del segundo elemento
 
-const frase1 = "Jonatan Palavecino";
-const frase2 = "Desarrollador Full Stack";
-const heroTitle1 = "heroTitle1"; // ID del primer elemento
-const heroTitle2 = "heroTitle2"; // ID del segundo elemento
-
-export const titulo1 = new Presentacion(frase1, heroTitle1, "text-6xl font-black");
-export const titulo2 = new Presentacion(frase2, heroTitle2, "text-4xl");
+export const titulo = new Presentacion(fraseUno, heroTitle, "text-6xl");
+export const subtitulo = new Presentacion(fraseDos, heroSubTitle, "text-4xl");
 
 // console.log("%cStop!", "color:red; font-size: 4rem; font-weight: bold"); 

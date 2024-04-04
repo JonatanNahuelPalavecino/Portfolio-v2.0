@@ -1,5 +1,5 @@
-import { aside, handleAside, handleScroll } from "./scripts/nav.js";
-import {titulo1, titulo2} from "./scripts/hero.js"
+import { aside, handleAside, handleScroll, handleSectionViewPort, navLinks} from "./scripts/nav.js";
+import {subtitulo, titulo} from "./scripts/hero.js"
 import { animate, handleScrollSphere, handleVibrationSphere, onMouseMove } from "./scripts/esfera.js";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -12,10 +12,31 @@ window.addEventListener("scroll", handleScroll);
 
 aside.addEventListener('click', handleAside);
 
+document.addEventListener("scroll", handleSectionViewPort)
+
+navLinks.forEach((link) => {
+  link.addEventListener("mouseenter", () => {
+    
+      navLinks.forEach((otherLink) => {
+          if (otherLink !== link) {
+              otherLink.classList.remove("active");
+          }
+      });
+      link.classList.add("active");
+  });
+
+  link.addEventListener("mouseleave", () => {
+    
+      navLinks.forEach((otherLink) => {
+          otherLink.classList.remove("active");
+      });
+  });
+});
+
 // HERO
 
-titulo1.animar();
-titulo2.animar();
+titulo.fade()
+subtitulo.animar();
 
 // ESFERA
 

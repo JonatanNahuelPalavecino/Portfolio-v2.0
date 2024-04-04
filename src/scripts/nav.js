@@ -1,13 +1,44 @@
 import { gsap } from 'gsap';
 
-let nav = document.getElementById("nav");
-let burger = document.getElementById("burger");
-let burgerItems = document.querySelectorAll(".burger-items");
-let lastScrollTop = 0;
 export const aside = document.getElementById('aside');
 const navAside = document.getElementById('navAside');
+let navBox = document.getElementById("nav");
+let burger = document.getElementById("burger");
+let burgerItems = document.querySelectorAll(".burger-items");
+let sections = document.querySelectorAll("section")
+export let navLinks = document.querySelectorAll("nav a")
+let lastScrollTop = 0;
 let isOpen = false;
 let delay = 0.3;
+
+const resetLinks = () => navLinks.forEach(link => link.classList.remove("active"))
+
+export const handleSectionViewPort = () => {
+
+    const {scrollY} = window
+
+    sections.forEach((section) => {
+
+        const {id, offsetTop, clientHeight} = section
+        const offset = offsetTop -1
+
+        if(scrollY >= offset && scrollY < offset + clientHeight / 2) {
+
+            resetLinks()
+
+            navLinks.forEach((link) => {
+
+                if (link.dataset.scroll === id) {
+
+                    link.classList.add("active")
+
+                }
+
+            })
+        }
+    })
+
+}
 
 export const handleScroll = () => {
 
@@ -19,11 +50,11 @@ export const handleScroll = () => {
     const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
     
     if (scrollDirection === 'down') {
-        nav.classList.remove("show");
-        nav.classList.add("hidde");
+        navBox.classList.remove("show");
+        navBox.classList.add("hidde");
     } else {
-        nav.classList.add("show");
-        nav.classList.remove("hidde");
+        navBox.classList.add("show");
+        navBox.classList.remove("hidde");
     }
 
     lastScrollTop = scrollTop;
